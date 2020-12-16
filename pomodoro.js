@@ -4,7 +4,7 @@ const timer = document.querySelector(".timer")
 const startButton = document.querySelector(".startButton");
 const pauseButton = document.querySelector(".pauseButton");const stopButton = document.querySelector(".stopButton");
 
-let userSecChoice=60;
+let userSecChoice=60*25;
 
 let sec = userSecChoice;
 let min = Math.floor((sec/60));
@@ -12,30 +12,47 @@ let displaySec = sec%60;
 
 let start = true;
 
-timer.innerHTML = `${min}:${displaySec}`;
+function displayTime(){
+    if (displaySec < 10){
+        timer.textContent = `${min}:0${displaySec}`;
+        if (min < 10 && displaySec < 10){
+            timer.textContent = `0${min}:0${displaySec}`;
+        }
+    }
+    else if (min < 10){
+        timer.textContent = `0${min}:${displaySec}`;
+        if (min < 10 && displaySec < 10){
+            timer.textContent = `0${min}:0${displaySec}`;
+        }
+    }
+    else{
+        timer.textContent = `${min}:${displaySec}`;
+    }
+}
+
+displayTime()
+
+function count() {
+    min = Math.floor((sec/60));
+    displaySec = sec%60;
+    console.log(sec);
+    console.log(min);
+
+    sec--;
+    displayTime();
+    if (sec == 0) {
+        alert("fini!");
+        stopTimer();
+    }
+}
 
 function startTimer() {
     if (start == true) {
         start = false;
         console.log("start is " + start);
 
-    function count() {
-        min = Math.floor((sec/60));
-        displaySec = sec%60;
-        console.log(sec);
-        console.log(min);
-
-        sec--;
-
-        if (sec == 0) {
-            alert("fini!")
-            stopTimer();
-        }
-
-        timer.innerHTML = `${min}:${displaySec}`;
-    }
-
-    interval = setInterval(count, 250);
+    count();
+    interval = setInterval(count, 1000);
     }
 }
 
@@ -55,7 +72,7 @@ function stopTimer() {
 
     min = Math.floor((userSecChoice/60));
     displaySec = userSecChoice%60;
-    timer.innerHTML = `${min}:${displaySec}`;
+    displayTime();
 
     sec = userSecChoice;
 }
