@@ -1,11 +1,53 @@
-.timer{
-    border: 1px solid black;
-    height: 50vh;
-    width: 100vw;
+body{
+    background-color: rgba(255, 99, 71, 0.616);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.timerBox{
+
+    background-color: tomato;
+    color: whitesmoke;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    font-size: 500%;
+    display: flex;
+    justify-content: center;
+
+}
+.timer{
+    height: fit-content;
+    width: fit-content;
+    padding: 15px;
 }
 
 .buttonBox{
-    display: flex;
-    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
 }
+
+button{
+    min-height: 60px;
+    min-width: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 10px;
+    border-radius: 50%;
+
+}
+/* 
+.description{
+    max-width: 40vw;
+    text-align: justify;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+ */
