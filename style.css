@@ -1,0 +1,11 @@
+.timer{
+    border: 1px solid black;
+    height: 50vh;
+    width: 100vw;
+
+}
+
+.buttonBox{
+    display: flex;
+    justify-content: center;
+}
